@@ -1,0 +1,34 @@
+*{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+   
+}
+#singup-form{
+    width: 30%;
+    margin:5% auto;
+    display: block;
+    height: 460px;
+    background-color:white;
+}
+.form{
+    width: 100%;
+    height: 100%;
+    margin:0px;
+    background-color:white;
+    
+}
+#btn{
+    border-radius: 0px;
+}
+
+
+@media screen and (max-width:600px) {
+
+    #singup-form{
+    width: 80%;
+    margin:20% auto;
+    
+    }
+    
+}

@@ -1,0 +1,68 @@
+.profile{
+    width: 40%;
+ 
+    padding: auto;
+    margin: auto;
+  
+    display: block;
+}
+.backimg{
+    width: 90%;
+    height: 150px;
+    margin: auto;
+    background: none;
+    padding: auto;
+}
+.userimg{
+
+    
+   background: none;
+    width: 20%;
+
+    position:relative;
+   margin: -6%;
+   left: 16%;
+}
+#follow{
+    position: relative;
+    width: 20%;
+    left: 60%;
+}
+
+.userinfo{
+    background: none;
+    display: block;
+    position:relative;
+   margin: 0%;
+   
+   left: 10%;
+}
+#name{
+    background: none;
+    font-size: x-large;
+    font-weight: 600;
+}
+#uname{
+    margin: -4% 0px;
+    background: none;
+
+}
+.bio{
+    background:none;
+    width: auto;
+    margin:6% 10%;
+}
+.link{
+    background:none;
+  width: auto;
+    margin:0% 10%;
+}
+.join{
+    width: 80%;
+    background: none;
+   font-size: larger;
+    margin:10px auto;
+    display: flex;
+}
+
+
