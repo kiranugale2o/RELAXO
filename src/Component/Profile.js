@@ -1,25 +1,33 @@
-import React from "react";
+import React,{useState} from "react";
  //import Userdata from './Relaxobackend/Userdata';
  import './profile.css'
     
-export default function Profile(){
+export default function Profile(props){
+           const [followBtn,setBtn]=useState("Follow");
 
+           const btnHandler=()=>{
+              if(followBtn==="Follow"){
+                setBtn("Following");
+              }else{
+                setBtn("Follow");
+              }
+           }
     
         return(
     <>
      <div className="profile border">
         <div className="backimg">
-        <img  style={{height:"100%",width:"100%",margin:" 20px auto"}} src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/roy.jpeg?alt=media&token=91bd3e2e-5cb5-4f40-baca-794fd71fbac0" ></img>
+        <img  style={{height:"100%",width:"100%",margin:" 20px auto"}} id="backi" src={props.userImg} ></img>
         </div>
         <div className="userimg" >
-            <img style={{width:"100%", borderRadius:"50%",height:"100px"}} src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/roy.jpeg?alt=media&token=91bd3e2e-5cb5-4f40-baca-794fd71fbac0" >
+            <img style={{width:"100%", borderRadius:"50%",height:"100px"}} src={props.userImg} >
             </img>
            
         </div>
-        <button id="follow" className="btn btn-primary">Follow</button>
+        <button id="follow" className="btn btn-primary" onClick={btnHandler}>{followBtn}</button>
           <div className="userinfo">
-            <p id="name">kiran ugale</p>
-            <p id="uname">@kiranugale</p>
+            <p id="name">{props.name}</p>
+            <p id="uname">{props.username}</p>
           </div>
             
 <div className="bio">This is may bio</div>

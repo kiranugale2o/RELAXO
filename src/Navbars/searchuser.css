@@ -1,0 +1,15 @@
+.search-box{
+    width: 30%;
+    
+    margin: auto;
+}
+.card-box{
+    padding: auto;
+ margin: auto;
+}
+@media screen and (max-width:600px){
+    .search-box{
+        width: 100%;
+        margin: auto;
+    }
+}

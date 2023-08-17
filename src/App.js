@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import Login from './authorizationpart/Login';
 import Profile from './Component/Profile';
+import Searchuser from './Navbars/Searchuser';
+import Navbar from './Navbars/Navbar';
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
         <Singup></Singup>
       </Route>
       <Route exact path="/">
-     <Profile></Profile>
+   <Navbar></Navbar>
       </Route>
     </Switch>
     </>

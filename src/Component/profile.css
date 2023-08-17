@@ -66,3 +66,34 @@
 }
 
 
+@media screen and (max-width:600px) {
+    
+
+    .profile{
+        width: 90%;
+    margin: auto 5px;
+    border-radius:none;
+    }
+    .backimg{
+        width: 100%;
+        height: 150px;
+        margin:0px ;
+        background: none;
+        padding: auto;
+    }
+    .userimg{
+
+    
+        background: none;
+         width: 30%;
+     
+         position:relative;
+        margin: -6%;
+        left: 16%;
+     }
+     #follow{
+        position: relative;
+        width: 30%;
+        left: 60%;
+    }
+}
