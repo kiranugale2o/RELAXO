@@ -11,6 +11,7 @@ import {
 import Login from './authorizationpart/Login';
 import Profile from './Component/Profile';
 import Searchuser from './Navbars/Searchuser';
+import RightNavbar from './Navbars/RightNavbar';
 import LeftNavbar from './Navbars/LeftNavbar';
 
 function App(props) {
@@ -30,7 +31,7 @@ function App(props) {
       <></>
     </Route>
       <Route path="/">
-   <LeftNavbar></LeftNavbar>
+  <LeftNavbar></LeftNavbar>
       </Route>
     </Switch>
     </>

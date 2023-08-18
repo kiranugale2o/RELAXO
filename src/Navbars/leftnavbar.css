@@ -1,0 +1,51 @@
+#bar{
+   position: fixed;
+   left: 0px;
+   bottom: 0px;
+   width: 20%;
+   height: 600px;
+   background-color: aliceblue;
+   margin: 0px;
+}
+.buttons{
+    display: flex;
+   height: 10%;
+}
+#nbtn{
+    border-radius: 0%;
+    font-size: medium;
+    font-weight: 500;
+}
+#icon{
+    margin: auto;
+}
+@media screen and (max-width:600px){
+    #bar{
+        width: 100%;
+        height: 60px;
+       position: fixed;
+       bottom: 0px;
+       left: 0px;
+       right: 0%;
+        display:flex;
+        background-color: bisque;
+        
+    }
+    .buttons{
+        display: flex;
+       height: 10%;
+    }
+    
+    #nbtn{
+        display: none;
+    }
+    #icon{
+        display: block;
+    }
+    #logo{
+        position: fixed;
+        top: 0%;
+        left: 0%;
+display: block;
+    }
+}
