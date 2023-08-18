@@ -10,12 +10,13 @@ const PostData=[
        height:"300",
        like:125,
        comment:56,
+       following:1,
     }
     ,
     {
       id:1,
        name:"Kiran Ugale",
-       userImage:"avtar.jpg",
+       userImage:"logo192.png",
        username:"@kiranugale2o",
        post:" “I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.”",
        imageUrl:" avtar.jpg",

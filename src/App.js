@@ -13,12 +13,12 @@ import Profile from './Component/Profile';
 import Searchuser from './Navbars/Searchuser';
 import Navbar from './Navbars/Navbar';
 
-function App() {
+function App(props) {
   return (
 
    <Router>
     <>
-   
+  
     <Switch>
       <Route path="/login">
         <Login></Login>
@@ -26,8 +26,11 @@ function App() {
       <Route path="/singup">
         <Singup></Singup>
       </Route>
-      <Route exact path="/">
-   <Navbar></Navbar>
+    <Route path="profile">
+      <></>
+    </Route>
+      <Route path="/">
+     <Navbar></Navbar>
       </Route>
     </Switch>
     </>
