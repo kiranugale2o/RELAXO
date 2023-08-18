@@ -7,6 +7,10 @@
     padding: auto;
  margin: auto;
 }
+#link{
+    text-decoration: none;
+    color: black;
+}
 @media screen and (max-width:600px){
     .search-box{
         width: 100%;

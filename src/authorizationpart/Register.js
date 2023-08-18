@@ -18,7 +18,7 @@ export default function Home(){
 
  <div className="container " id="box" >
     <div className="image-part">
-        <img src="logo.png" className="social-image" alt="image" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Flogo.png?alt=media&token=d7e0fe04-f6e8-4074-9155-a1bd6357126d" className="social-image" alt="image" />
       
     </div>
     <div className="join-part  ">
