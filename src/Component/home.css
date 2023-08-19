@@ -1,0 +1,13 @@
+.leftbar{
+    width: 20%;
+}
+.post{
+  
+    margin: 0px;
+}
+@media screen and (max-width:600px) {
+    
+    .post{
+        width: 100%;
+    }
+}

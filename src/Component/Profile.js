@@ -30,7 +30,7 @@ export default function Profile(props){
            
         </div>
         <button id="follow" className="btn btn-primary" onClick={btnHandler}>{followBtn}</button>
-          <div className="userinfo">
+          <div className="userinfo-profile">
             <p id="name">{props.name}</p>
             <p id="uname">{props.username}</p>
           </div>

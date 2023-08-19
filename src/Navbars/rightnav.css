@@ -1,0 +1,46 @@
+.search-area{
+    width: 26%;
+    position: fixed;
+    right: 0%;
+    height: 600px;
+    background-color: aliceblue;
+    bottom: 0%;
+    display: block;
+}
+.search{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    margin:10% 0px;
+    background-color: aliceblue;
+}
+
+#bs{
+    width: 14%;
+    right: 10px;
+    top:8%;
+    background: none;
+    font-size:large;
+}
+#mysearch{
+width: 80%;
+margin: auto 10px;
+padding: auto;
+}
+#mysearch:hover{
+    border: none;
+}
+.search-result{
+    width: 100%;
+    margin: auto;
+    height: auto;
+}
+
+@media screen and (max-width:600px) {
+    
+    .search-area{
+        width: 100%;
+        position: static;
+        margin: 0px;
+    }
+}

@@ -1,8 +1,8 @@
 .profile{
-    width: 40%;
- 
+    width: 100%;
+    height: fit-content;
     padding: auto;
-    margin: auto;
+   
   
     display: block;
 }
@@ -29,7 +29,7 @@
     left: 60%;
 }
 
-.userinfo{
+.userinfo-profile{
     background: none;
     display: block;
     position:relative;
@@ -70,8 +70,8 @@
     
 
     .profile{
-        width: 100%;
-    margin: 0px;
+        width: 90%;
+    margin:0px 0px;
     border-radius:none;
     }
     .backimg{

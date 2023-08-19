@@ -13,6 +13,9 @@ import Profile from './Component/Profile';
 import Searchuser from './Navbars/Searchuser';
 import RightNavbar from './Navbars/RightNavbar';
 import LeftNavbar from './Navbars/LeftNavbar';
+import Home from './Component/Home';
+import Postpage from './PostHandle/Postpage';
+
 
 function App(props) {
   return (
@@ -27,11 +30,9 @@ function App(props) {
       <Route path="/singup">
         <Singup></Singup>
       </Route>
-    <Route path="profile">
-      <></>
-    </Route>
+   
       <Route path="/">
-  <LeftNavbar></LeftNavbar>
+<Home></Home>
       </Route>
     </Switch>
     </>

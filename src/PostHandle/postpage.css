@@ -1,0 +1,55 @@
+
+#card-box{
+    width: 80%;
+    margin: auto;
+}
+.card-nav{
+    display: flex;
+    width: 100%;
+}
+#userimg{
+    width: 12%;
+    height: 70px;
+    border-radius: 50%;
+    border-style: none;
+}
+.userinfo{
+    margin: 10px -50px;
+   
+    width: 40%;
+   
+    display: block;
+}
+#ficon{
+    position: absolute;
+    background:none;
+    left: 30%;
+    right: 0%;
+    font-size: xx-large;
+}
+#liveAlertBtn{
+    width:20% ;
+    position:absolute;
+    top:56%;
+     left:70%;
+}
+
+
+
+@media screen and (max-width:600px){
+    #card-box{
+        width: 100%;
+        margin: auto;
+    }
+    .card-nav{
+        display: flex;
+        width: 100%;
+    }
+    #userimg{
+        width: 12%;
+        height: 70px;
+        border-radius: 50%;
+        border-style: none;
+    }
+    
+}

@@ -10,13 +10,25 @@
 .buttons{
     display: flex;
    height: 10%;
+   width: 80%;
+   margin: auto;
+   background-color: aliceblue;
+   
+}
+.buttons:hover{
+    border:1px solid black;
 }
 #nbtn{
-    border-radius: 0%;
-    font-size: medium;
+    border-radius: 0% ;
+    
+    font-size:20px;
     font-weight: 500;
+    
+    background-color: aliceblue;
 }
 #icon{
+    width: 20%;
+    background-color: aliceblue;
     margin: auto;
 }
 @media screen and (max-width:600px){
@@ -28,19 +40,24 @@
        left: 0px;
        right: 0%;
         display:flex;
-        background-color: bisque;
+        background-color:aliceblue;
         
     }
     .buttons{
         display: flex;
+        width: 100%;
        height: 10%;
+       background-color: aliceblue;
     }
     
     #nbtn{
         display: none;
+        background-color: aliceblue;
     }
     #icon{
+        width: auto;
         display: block;
+        background-color: aliceblue;
     }
     #logo{
         position: fixed;

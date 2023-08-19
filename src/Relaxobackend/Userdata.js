@@ -1,5 +1,5 @@
 const Userdata=[
-
+  
    
     {
         id:1,
@@ -41,6 +41,19 @@ const Userdata=[
          following:100,
       },
       {
+        id:73,
+          name:"Elon Musk",
+          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
+          username:"@Mark__M#o",
+          userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
+    
+          userBio:"<> I AM FRONTEND WEB DEVELOPER </>",
+          userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
+          userJoin:"Joined june 12 2023",
+          following:1,
+          followers:1,
+      },
+      {
         id:4,
          name:"Jonh Zucker",
          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fjon.jpeg?alt=media&token=32df447b-707e-4656-b8ac-914b99cc108c",
@@ -65,23 +78,7 @@ const Userdata=[
          followers:20,
          following:12,
       },
-      {
-         
-           name:"mark Musker",
-           userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
-           username:"@Mark__M#o",
-           userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
-   
-           userBio:"<> I AM FRONTEND WEB DEVELOPER </>",
-           userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
-           userJoin:"Joined june 12 2023",
-           post:3,
-           posts:[
-   
-           ],
-           following:1,
-           followers:1,
-       },
+      
    
    
 ];
