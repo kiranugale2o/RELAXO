@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 const Userdata=[
   
+=======
+
+
+ Userdata=[
+
+>>>>>>> 834181472a2301a9d96ed9f4acf078326f242172
    
     {
         id:1,
@@ -78,7 +85,44 @@ const Userdata=[
          followers:20,
          following:12,
       },
+<<<<<<< HEAD
       
+=======
+      {
+         id:6,
+           name:"mark Musker",
+           userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
+           username:"@Mark__M#o",
+           userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
+   
+           userBio:"<> I AM FRONTEND WEB DEVELOPER </>",
+           userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
+           userJoin:"Joined june 12 2023",
+           post:3,
+           posts:[
+   
+           ],
+           following:1,
+           followers:1,
+       },
+{
+         id:7,
+           name:" Riched Duck",
+           userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
+           username:"@Rich__duck2o",
+           userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
+   
+           userBio:"<> I Am Tester </>",
+           userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
+           userJoin:"Joined march 10 2023",
+           post:3,
+           posts:[
+   
+           ],
+           following:1,
+           followers:1,
+       },
+>>>>>>> 834181472a2301a9d96ed9f4acf078326f242172
    
    
 ];
