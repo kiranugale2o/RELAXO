@@ -25,6 +25,7 @@ export default function Searchuser(props){
         setFollow("Follow");
       }
      }
+     console.log(props.posts);
     return(
       <Router>
        
@@ -34,7 +35,7 @@ export default function Searchuser(props){
 
 <Route path={`/${props.username}`}>
 <div className='showprofile' style={{display:`${showornot}`}} >
-<Profile key={props.id} name={props.name} userback={props.userback} userlink={props.userlink} following={props.following} followers={props.followers} userjoin={props.userjoin}  username={props.username} profileImg={props.userImg} userbio={props.userbio} ></Profile>
+<Profile key={props.id} posts={props.posts} name={props.name} userback={props.userback} userlink={props.userlink} following={props.following} followers={props.followers} userjoin={props.userjoin}  username={props.username} profileImg={props.userImg} userbio={props.userbio} ></Profile>
 
 </div>
 </Route>

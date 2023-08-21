@@ -28,7 +28,7 @@ let user=[];
      
     let result;
     result=postdata.map((d)=>{
-      return <Searchuser key={d.id} id={d.id} name={d.name} username={d.username} userImg={d.userImage} userback={d.userBackground} userbio={d.userBio} userlink={d.userLink} userjoin={d.userJoin} following={d.following} followers={d.followers} ></Searchuser>
+      return <Searchuser key={d.id} posts={d.posts} id={d.id} name={d.name} username={d.username} userImg={d.userImage} userback={d.userBackground} userbio={d.userBio} userlink={d.userLink} userjoin={d.userJoin} following={d.following} followers={d.followers} ></Searchuser>
       
     })
     return(
@@ -38,9 +38,7 @@ let user=[];
    <input className='form-control' placeholder={`Search User`} type='text' onChange={
     (e)=>{searchHandler(e.target.value)}
    } id='mysearch'></input>
-  <div id='bs' style={{position:"absolute"}}>
-   <BsSearch style={{background:"none"}}></BsSearch>
-   </div>
+  
   </div>
   <div  className='search-result  '>
   

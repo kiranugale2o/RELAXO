@@ -1,13 +1,5 @@
-<<<<<<< HEAD
+
 const Userdata=[
-  
-=======
-
-
- Userdata=[
-
->>>>>>> 834181472a2301a9d96ed9f4acf078326f242172
-   
     {
         id:1,
          name:"Kiran Ugale",
@@ -19,6 +11,23 @@ const Userdata=[
         userJoin:"Joined june 5 2022",
         followers:11,
         following:0,
+        post:1,
+        posts:[
+          
+            {
+              id:1,
+               name:"Kiran Ugale",
+               userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fme.jpg?alt=media&token=404d40eb-a14a-4ee4-9d1b-b6b013a07623",
+               username:"@kiranugale2o",
+               post:" “I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.”",
+               imageUrl:" ",
+               height:"0",
+               like:25,
+               comment:16,
+        
+            },
+          
+        ]
   
       },
       {
@@ -32,6 +41,19 @@ const Userdata=[
          userJoin:"Joined march 25 2023",
          following:0,
          followers:5,
+         posts:[
+          {
+            id:2,
+             name:"Riya Singh",
+             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+             username:"@riya__So",
+             post:" this is My favourite Progarmmer !",
+             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
+             height:"300",
+             like:250,
+             comment:116,
+          },
+         ]
         
       },
     
@@ -46,20 +68,21 @@ const Userdata=[
          userLink:" google.com",
          followers:1000,
          following:100,
+         posts:[
+          {
+            id:2,
+             name:"Riya Singh",
+             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+             username:"@riya__So",
+             post:" this is My favourite Progarmmer !",
+             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
+             height:"300",
+             like:250,
+             comment:116,
+          },
+         ]
       },
-      {
-        id:73,
-          name:"Elon Musk",
-          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
-          username:"@Mark__M#o",
-          userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
-    
-          userBio:"<> I AM FRONTEND WEB DEVELOPER </>",
-          userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
-          userJoin:"Joined june 12 2023",
-          following:1,
-          followers:1,
-      },
+     
       {
         id:4,
          name:"Jonh Zucker",
@@ -71,6 +94,19 @@ const Userdata=[
         userJoin:"Joined Feb 23 2022",
         followers:55,
         following:10,
+        posts:[
+          {
+            id:2,
+             name:"Riya Singh",
+             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+             username:"@riya__So",
+             post:" this is My favourite Progarmmer !",
+             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
+             height:"300",
+             like:250,
+             comment:116,
+          },
+         ]
       }
       ,
       {
@@ -84,27 +120,49 @@ const Userdata=[
          userJoin:"Joined june 29 2022",
          followers:20,
          following:12,
+         posts:[
+          {
+            id:2,
+             name:"Riya Singh",
+             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+             username:"@riya__So",
+             post:" this is My favourite Progarmmer !",
+             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
+             height:"300",
+             like:250,
+             comment:116,
+          },
+         ]
       },
-<<<<<<< HEAD
-      
-=======
+
       {
-         id:6,
-           name:"mark Musker",
-           userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
-           username:"@Mark__M#o",
-           userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
-   
-           userBio:"<> I AM FRONTEND WEB DEVELOPER </>",
-           userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
-           userJoin:"Joined june 12 2023",
-           post:3,
-           posts:[
-   
+        id:6,
+          name:"mark Musker",
+          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
+          username:"@Mark__M#o",
+          userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
+  
+          userBio:"<> I AM FRONTEND WEB DEVELOPER </>",
+          userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
+          userJoin:"Joined june 12 2023",
+          post:3,
+          posts:[
+            {
+              id:2,
+               name:"Riya Singh",
+               userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+               username:"@riya__So",
+               post:" this is My favourite Progarmmer !",
+               imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
+               height:"300",
+               like:250,
+               comment:116,
+            },
            ],
-           following:1,
-           followers:1,
-       },
+          following:1,
+          followers:1,
+      },
+      
 {
          id:7,
            name:" Riched Duck",
@@ -116,13 +174,23 @@ const Userdata=[
            userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
            userJoin:"Joined march 10 2023",
            post:3,
-           posts:[
-   
-           ],
+           
            following:1,
            followers:1,
+           posts:[
+            {
+              id:2,
+               name:"Riya Singh",
+               userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+               username:"@riya__So",
+               post:" this is My favourite Progarmmer !",
+               imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
+               height:"300",
+               like:250,
+               comment:116,
+            },
+           ]
        },
->>>>>>> 834181472a2301a9d96ed9f4acf078326f242172
    
    
 ];

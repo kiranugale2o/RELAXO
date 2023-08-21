@@ -1,5 +1,5 @@
 .search-area{
-    width: 26%;
+    width: 29%;
     position: fixed;
     right: 0%;
     height: 600px;
@@ -15,13 +15,7 @@
     background-color: aliceblue;
 }
 
-#bs{
-    width: 14%;
-    right: 10px;
-    top:8%;
-    background: none;
-    font-size:large;
-}
+
 #mysearch{
 width: 80%;
 margin: auto 10px;
@@ -39,8 +33,25 @@ padding: auto;
 @media screen and (max-width:600px) {
     
     .search-area{
-        width: 100%;
+        margin: 30% 0px;
         position: static;
-        margin: 0px;
+        width: 100%;
+        height: auto;
+        background:none;
+       display: block;
+    }
+    .search{
+        width: 100%;
+        height: auto;
+        display: flex;
+        background: none;
+        margin:0% 0px;
+        background-color: none;
+    }
+    .search-result{
+        width: 100%;
+        border: 0px none;
+        margin:5% auto;
+        height: auto;
     }
 }

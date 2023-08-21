@@ -1,68 +1,103 @@
 #bar{
-   position: fixed;
-   left: 0px;
-   bottom: 0px;
-   width: 20%;
-   height: 600px;
-   background-color: aliceblue;
-   margin: 0px;
-}
-.buttons{
-    display: flex;
-   height: 10%;
-   width: 80%;
-   margin: auto;
-   background-color: aliceblue;
-   
-}
-.buttons:hover{
-    border:1px solid black;
-}
-#nbtn{
-    border-radius: 0% ;
-    
-    font-size:20px;
-    font-weight: 500;
-    
-    background-color: aliceblue;
-}
-#icon{
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
     width: 20%;
+    height: 600px;
     background-color: aliceblue;
+    margin: 0px;
+ }
+ .buttons{
+     display: flex;
+    height: 10%;
+    width: 80%;
     margin: auto;
-}
-@media screen and (max-width:600px){
-    #bar{
-        width: 100%;
-        height: 60px;
-       position: fixed;
-       bottom: 0px;
-       left: 0px;
-       right: 0%;
-        display:flex;
-        background-color:aliceblue;
-        
-    }
-    .buttons{
-        display: flex;
-        width: 100%;
-       height: 10%;
-       background-color: aliceblue;
-    }
+    background-color: aliceblue;
     
-    #nbtn{
-        display: none;
-        background-color: aliceblue;
-    }
-    #icon{
-        width: auto;
-        display: block;
-        background-color: aliceblue;
-    }
-    #logo{
+ }
+ .buttons:hover{
+     border:0px none;
+ }
+ #nbtn{
+     border-radius: 0% ;
+     width: 60%;
+     font-size:20px;
+     font-weight: 500;
+     
+     background-color:aliceblue;
+ }
+ #nlink{
+    width: 100%;
+    text-decoration: none;
+    color: black;
+   background: none;
+ }
+ #icon{
+    display: none;
+     width: 20%;
+     background-color: aliceblue;
+     margin: auto;
+ }
+ .create{
+    display: none;
+ }
+ #search-m{
+    display: none;
+ }
+ @media screen and (max-width:600px){
+     #bar{
+         width: 100%;
+         height: 60px;
         position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0%;
+         display:flex;
+         background-color:aliceblue;
+         
+     }
+     .topbar{
+        position: fixed;
+        width: 100%;
         top: 0%;
-        left: 0%;
-display: block;
+       display: flex;
+background-color: aliceblue;
+    
+       
+     }
+     .create{
+        margin: 20px -6%;
+     }
+     #create-icon{
+        background-color: aliceblue;
+     }
+     .buttons{
+         display: flex;
+         width: 100%;
+        height: 10%;
+        background-color: aliceblue;
+     }
+     #nlink{
+       text-decoration: none;
+       width: auto;
+       margin: auto;
     }
-}
+     #nbtn{
+         display: none;
+         background-color: aliceblue;
+     }
+     #icon{
+         width: auto;
+         display: block;
+         background-color: aliceblue;
+     }
+     #logo{
+        color: black;
+     }
+     #search-m{
+    
+        display: block;
+     }
+
+    
+ }

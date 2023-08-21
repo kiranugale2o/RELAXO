@@ -1,10 +1,12 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
  //import Userdata from './Relaxobackend/Userdata';
- import './profile.css'
+ import './profile.css';
+ import Posts from "../Relaxobackend/Userdata";
+import Postpage from "../PostHandle/Postpage";
     
 export default function Profile(props){
            const [followBtn,setBtn]=useState("Follow");
-           
+           const[profilePost, setPost]=useState(props.posts);
            const[follow,setFollowing]=useState(props.followers);
            const btnHandler=()=>{
               if(followBtn==="Follow"){
@@ -17,9 +19,11 @@ export default function Profile(props){
               
               
            }
-    
+           
+console.log(profilePost);
         return(
     <>
+    <div className="" style={{display:"block",height:"100%"}}>
      <div className="profile border">
         <div className="backimg">
         <img src={props.userback}  style={{height:"100%",width:"100%",margin:" 20px auto"}} id="backi" ></img>
@@ -50,6 +54,13 @@ export default function Profile(props){
     <p id="p-6" className="h6">Following  {props.followings}</p>
 </div>
      </div>
+     <div className="user-profiles">
+    { profilePost.map((d)=>{
+     return <Postpage key={d.id}   name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+    })}
+
+     </div>
+     </div> 
     </>
         
   )  

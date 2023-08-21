@@ -1,13 +1,44 @@
+ .home-page{
+    width: 100%;
+    justify-content: space-between;
+ }
 .leftbar{
     width: 20%;
+    
+    
 }
-.post{
-  
-    margin: 0px;
+
+.insert-page{
+    background: none;
+    width: 45%;
+    margin: auto 20%;
+      
+   
+
+}
+.search-page{
+    display: none;
 }
 @media screen and (max-width:600px) {
-    
-    .post{
+    .home-page{
         width: 100%;
+        display: block;
+        justify-content: space-between;
+     }
+     .search-page{
+        display: block;
+    }
+    .leftbar{
+        width: 100%;
+        position: fixed;
+    }
+    .insert-page{
+       margin: 20% 0%;
+    background: none;
+      width: 100%;
+    }
+    .rightbar{
+    display: none;
+
     }
 }
