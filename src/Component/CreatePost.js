@@ -1,5 +1,5 @@
 import React, { useState } from "react";
- 
+ import Postpage from "../PostHandle/Postpage";
 import './createpost.css';
 import Picker from 'emoji-picker-react';
 import { initializeApp } from "firebase/app";
@@ -13,14 +13,14 @@ import userEvent from "@testing-library/user-event";
 // Create a root reference
 const storage = getStorage();
 
-let data={};
+let data=null;
 function Emoji(props) {
 	const[chosenEmoji, setChosenEmoji] = useState(null);
 
 	const onEmojiClick = (event, emojiObject) => {
 		setChosenEmoji(event);
     
-		data=event.emoji;
+		data=event;
 	};
 
 	return (
@@ -43,29 +43,68 @@ export default function CreatePost(){
   const setEmoji=()=>{
 
   }
-   const[postImg,setPostImg]=useState(null);
-   const[postVideo,setPostVideo]=useState(null);
+   const[post,setPost]=useState(null);
+   const[posttext,setposttext]=useState(null);
    
   const[showemoji,setShowemoji]=useState("none");
-  const sendImg=(event)=>{
+  const[page,setpage]=useState(true);
+  const img=document.createElement('img');
+  const sendData=(event)=>{
+    
     const iname=event.target.files[0];
+   
     const mountainsRef = ref(storage,`postimg/${iname.name}` );
 
 // Create a reference to 'images/mountains.jpg'
 const mountainImagesRef = ref(storage, `postimg/${iname}`);
  uploadBytes(mountainsRef,iname).then(()=>{
   getDownloadURL(ref(storage, `postimg/${iname.name}`)).then((url)=>{
-   setPostImg(url);
+   setPost(url);
+   img.src=url;
+  
+  document.getElementById('vi').appendChild(img);
+   
   })
  })
+   
   }
 
+  const postd=document.createElement('video');
+console.log(post);
+  const videoSender=(event)=>{
+   
+    
+    const videof=event.target.files[0];
+   
+  const videoRef=ref(storage,`postvideo/${videof.name}`);
+  const myvideoRef=ref(storage,`postvideo/${videof}`);
+  uploadBytes(videoRef,videof).then(()=>{
+    getDownloadURL(ref(storage,`postvideo/${videof.name}`)).then((url)=>{
+      setPost(url);
+      postd.src=url;
+  postd.controls=true;
+  postd.height=200;
+  postd.width=400;
+  document.getElementById('vi').appendChild(postd);
+      //myvideo.play();
+     
+    })
+  })
+  
+  }
 
+  const postSender=(event)=>{
+    event.preventDefault();
+    setposttext(event.target.posttext.value);
+        setpage(false);
+    
+  }
+     
    
     return(
 <>
-
-
+{page?
+<form onSubmit={postSender}>
 <div class="card w-100 mb-4" id="create-card">
   <div class="card-body" style={{height:"auto"}}>
     <div className="input-part" style={{display:"flex"}}>
@@ -73,9 +112,11 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
     <img  style={{width:"100%",height:"100%",borderRadius:"50%"}}src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7" alt="user"></img>
      </div>
 <div className="post-data">
-  <span>{userVal}</span>
-  <textarea class="form-control"  id="exampleFormControlTextarea1" style={{borderStyle:"none"}} rows="3"></textarea>
-  <img src={postImg}></img>
+  
+  <textarea class="form-control"  id="exampleFormControlTextarea1" name="posttext" style={{borderStyle:"none",fontSize:"medium"}} rows="3"></textarea>
+     <div className="files-data" style={{width:"80%"}}>
+    <div id="vi" style={{height:"auto",margin:"0px" ,width:"90%" ,display:"flex"}}> </div>
+   </div>
    </div>
    </div>
      <div className="send-data" style={{display:"flex",width:"30%"}}>
@@ -85,7 +126,7 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
   <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
 </svg>
 </label>
-<input type="file" name="" style={{display:"none"}} onChange={sendImg} id="inimg"></input>
+<input type="file" name="" style={{display:"none"}} onChange={sendData} id="inimg"></input>
 
 </div>
 <div className="video-with-icon" style={{display:"flex"}}>
@@ -95,7 +136,7 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
 
 </svg>
 </label>
-<input type="file" name="" style={{display:"none"}} id="inv"></input>
+<input type="file" accept="video/*" style={{width:"0px"}} id="inv" onChange={videoSender}/> 
 </div>
 <div className="emoji-with-emoji">
   
@@ -108,9 +149,12 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
   <div className="" id="inem" style={{display:`${showemoji}`,width:"50%" ,position:"fixed",top:"40%",left:"30%"}}><Emoji setemoji={setVal}/></div>
 </div>
     </div>
-    <div className="btn btn-primary" id="postbtn">post</div>
-  </div>
-</div>
+    <button type="submit" className="btn btn-success">Post</button>
+     </div>
+</div></form>:
+<Postpage name="kiran ugale" username="@kiran_ugale44"  post={posttext}  postImg={post}   ></Postpage>
+
+}
 </>
     );
 }
