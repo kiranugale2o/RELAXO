@@ -10,6 +10,8 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import CreatePost from "./CreatePost";
+import Emoji from "./Emoji";
 export default function Home(){
 
     return(
@@ -24,7 +26,8 @@ export default function Home(){
           <Switch>
 
           <Route path="/post">
-        <>{PostData.map((d)=>{
+         <> <div className="h3 p-3">Letest Posts</div>
+        {PostData.map((d)=>{
           return <Postpage key={d.id} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
           })}
           </>
@@ -33,10 +36,10 @@ export default function Home(){
             <RightNavbar></RightNavbar>
           </Route>
           <Route path="/reels">
-          <>reels</>
+          <CreatePost></CreatePost>
           </Route>
           <Route path="/profile">
-           <>profile</>
+           <Emoji></Emoji>
           </Route>
           <Route path="/saved">
            <>saved</>

@@ -1,0 +1,24 @@
+#create-card{
+    width: 100%;
+    margin: 10% 20px;
+    border-radius: 0%;
+    border: 2px groove aliceblue;
+}
+.send-data{
+    width: auto;
+    margin: 5% 0px;
+}
+.post-data{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+@media screen and (max-width:600px) {
+    
+    
+#create-card{
+        width: 100%;
+    }
+
+    
+}

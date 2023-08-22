@@ -66,6 +66,7 @@ background-color: aliceblue;
        
      }
      .create{
+      display: block;
         margin: 20px -6%;
      }
      #create-icon{

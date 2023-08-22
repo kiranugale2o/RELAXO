@@ -15,6 +15,8 @@ import RightNavbar from './Navbars/RightNavbar';
 import LeftNavbar from './Navbars/LeftNavbar';
 import Home from './Component/Home';
 import Postpage from './PostHandle/Postpage';
+import CreatePost from './Component/CreatePost';
+import Emoji from './Component/Emoji';
 
 
 function App(props) {

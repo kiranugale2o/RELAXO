@@ -28,8 +28,10 @@
      .search-page{
         display: block;
     }
+    
     .leftbar{
         width: 100%;
+        bottom: 0px;
         position: fixed;
     }
     .insert-page{
