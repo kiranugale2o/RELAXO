@@ -1,5 +1,6 @@
 import React, { useState } from "react";
  import Postpage from "../PostHandle/Postpage";
+ import PostData from '../Relaxobackend/PostData';
 import './createpost.css';
 import Picker from 'emoji-picker-react';
 import { initializeApp } from "firebase/app";
@@ -14,59 +15,31 @@ import userEvent from "@testing-library/user-event";
 const storage = getStorage();
 
 let data=null;
-function Emoji(props) {
-	const[chosenEmoji, setChosenEmoji] = useState(null);
-
-	const onEmojiClick = (event, emojiObject) => {
-		setChosenEmoji(event);
-    
-		data=event;
-	};
-
-	return (
-		<div>
-			
-			{chosenEmoji ? (
-				<span>Your Emoji: {chosenEmoji.emoji}</span>
-			) : (
-				<span>No Emoji</span>
-			)}
-			<Picker onEmojiClick={onEmojiClick} />
-		</div>
-	);
-};
 
 export default function CreatePost(){
 
+
+  //emoji 
+
+  const[chosenEmoji, setChosenEmoji] = useState(null);
+  
+	const onEmojiClick = (event, emojiObject) => {
+		setChosenEmoji(event);
+  setEmoji(event.emoji);
+	};
   const[userVal,setVal]=useState(data);
 
-  const setEmoji=()=>{
-
-  }
+  
    const[post,setPost]=useState(null);
-   const[posttext,setposttext]=useState(null);
-   
+   const[posttext,setposttext]=useState("");
+   const[height,setHeight]=useState(0);
   const[showemoji,setShowemoji]=useState("none");
   const[page,setpage]=useState(true);
+  const[myemoji,setEmoji]=useState("");
   const img=document.createElement('img');
   const sendData=(event)=>{
     
-    const iname=event.target.files[0];
-   
-    const mountainsRef = ref(storage,`postimg/${iname.name}` );
-
-// Create a reference to 'images/mountains.jpg'
-const mountainImagesRef = ref(storage, `postimg/${iname}`);
- uploadBytes(mountainsRef,iname).then(()=>{
-  getDownloadURL(ref(storage, `postimg/${iname.name}`)).then((url)=>{
-   setPost(url);
-   img.src=url;
-  
-  document.getElementById('vi').appendChild(img);
-   
-  })
- })
-   
+    
   }
 
   const postd=document.createElement('video');
@@ -95,15 +68,50 @@ console.log(post);
 
   const postSender=(event)=>{
     event.preventDefault();
-    setposttext(event.target.posttext.value);
-        setpage(false);
+//image part
+const iname=event.target.image.files[0];
+   
+    const mountainsRef = ref(storage,`postimg/${iname.name}` );
+
+// Create a reference to 'images/mountains.jpg'
+const mountainImagesRef = ref(storage, `postimg/${iname}`);
+ uploadBytes(mountainsRef,iname).then(()=>{
+  getDownloadURL(ref(storage, `postimg/${iname.name}`)).then((url)=>{
+   setPost(url);
+   
+  document.getElementById('vi').appendChild(img);
+   
+  })
+  
+ })
+ 
+
+
+
     
+        setpage(false);
+        PostData.unshift({
+          id:"username",
+          name:"kiran ugale",
+          username:"@kiran_ugale2",
+          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
+          post:posttext +""+myemoji,
+          imageUrl:post,
+          
+          like:0,
+        })
+       
+      
+        setposttext("");
+        
+        console.log(PostData);
+       
   }
      
    
     return(
 <>
-{page?
+
 <form onSubmit={postSender}>
 <div class="card w-100 mb-4" id="create-card">
   <div class="card-body" style={{height:"auto"}}>
@@ -111,9 +119,13 @@ console.log(post);
   <div class="user-img" style={{width:"10%",height:"50px"}}>
     <img  style={{width:"100%",height:"100%",borderRadius:"50%"}}src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7" alt="user"></img>
      </div>
-<div className="post-data">
-  
-  <textarea class="form-control"  id="exampleFormControlTextarea1" name="posttext" style={{borderStyle:"none",fontSize:"medium"}} rows="3"></textarea>
+    
+<div className="post-data" style={{display:"flex"}}>
+ 
+  <textarea  placeholder=" SHARE YOUR THINK !"class="form-control" value={posttext}  id="exampleFormControlTextarea1" onChange={(e)=>{setposttext(e.target.value)}} style={{borderStyle:"none",fontSize:"medium",width:"80%"}} rows="3"></textarea>
+  {chosenEmoji?
+   <span style={{width:"auto"}}>{chosenEmoji.emoji} </span>  :""
+}
      <div className="files-data" style={{width:"80%"}}>
     <div id="vi" style={{height:"auto",margin:"0px" ,width:"90%" ,display:"flex"}}> </div>
    </div>
@@ -126,7 +138,8 @@ console.log(post);
   <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
 </svg>
 </label>
-<input type="file" name="" style={{display:"none"}} onChange={sendData} id="inimg"></input>
+
+<input type="file" name="image" style={{display:"none"}}  id="inimg"></input>
 
 </div>
 <div className="video-with-icon" style={{display:"flex"}}>
@@ -146,15 +159,15 @@ console.log(post);
   <path d="M11.315 10.014a.5.5 0 0 1 .548.736A4.498 4.498 0 0 1 7.965 13a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242.63 0 1.46-.118 2.152-.242a26.58 26.58 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434zm6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434z"/>
 </svg>
 </label>
-  <div className="" id="inem" style={{display:`${showemoji}`,width:"50%" ,position:"fixed",top:"40%",left:"30%"}}><Emoji setemoji={setVal}/></div>
-</div>
-    </div>
+  <div className="" id="inem" style={{display:`${showemoji}`,width:"20%",height:"auto" ,position:"fixed",top:"10%",left:"40%"}}> 	<Picker style={{width:"20%",height:"100px"}} onEmojiClick={onEmojiClick} />   </div>
+    </div></div>
     <button type="submit" className="btn btn-success">Post</button>
+    
      </div>
-</div></form>:
-<Postpage name="kiran ugale" username="@kiran_ugale44"  post={posttext}  postImg={post}   ></Postpage>
-
-}
+</div></form>
+{PostData.map((d)=>{
+          return <Postpage key={d.id} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+          })}
 </>
     );
 }

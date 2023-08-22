@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import './postpage.css';
+import CreatePost from "../Component/CreatePost";
 export default function Postpage(props){
 const[show ,setShow]=useState("none");
 const[followBtn,setfollowBtn]=useState("Follow");
@@ -35,6 +36,7 @@ const alertBtn=()=> {
         <div id="liveAlertPlaceholder" style={{display:`${setAlert}`}}></div>
         <div id="liveAlertPlaceholder" style={{display:`${setAlert}`}}></div>
 
+  
 <div className="card shadow-none p-3 mb-2 bg-body-white rounded" style={{ width: "100%" ,position:"none"}}>
   <div className="card-body" style={{width:"100%"}} >
   <div className="card-nav" style={{display:"flex"}}>
