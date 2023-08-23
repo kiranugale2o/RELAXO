@@ -11,6 +11,7 @@ const PostData=[
        like:125,
        comment:56,
        following:1,
+       vishow:"none"
     }
     ,
     {
@@ -23,7 +24,7 @@ const PostData=[
        height:"0",
        like:25,
        comment:16,
-
+       vishow:"none"
     },
     {
       id:2,
@@ -35,6 +36,7 @@ const PostData=[
        height:"300",
        like:250,
        comment:116,
+       vishow:"none"
     },
   
     ,{
@@ -46,6 +48,7 @@ const PostData=[
        imageUrl:"",
        height:"0",
        like:45,
+       vishow:"none",
        comment:16,
     },
     {
@@ -58,6 +61,7 @@ const PostData=[
        height:"300",
        like:95,
        comment:66,
+       vishow:"none"
     }
     ,
     {
@@ -66,10 +70,12 @@ const PostData=[
        userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fjoly.jpeg?alt=media&token=cd78e033-28ab-4183-9d9a-b5e48f06b959",
        username:"@Jolly_Hemp22o",
     post:" Like Me !",
-       imageUrl:"jolly.jpg",
+       imageUrl:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fjoly.jpeg?alt=media&token=cd78e033-28ab-4183-9d9a-b5e48f06b959",
+     
        height:"300",
        like:1082,
        comment:346,
+       vishow:"none"
     }
  
  ];

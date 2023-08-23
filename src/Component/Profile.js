@@ -56,7 +56,7 @@ console.log(profilePost);
      </div>
      <div className="user-profiles">
     { profilePost.map((d)=>{
-     return <Postpage key={d.id}   name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+     return <Postpage key={d.id} vishow={d.vishow}   name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
     })}
 
      </div>

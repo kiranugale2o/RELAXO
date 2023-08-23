@@ -12,6 +12,7 @@ import {
   } from "react-router-dom";
 import CreatePost from "./CreatePost";
 import Emoji from "./Emoji";
+import Profile from "./Profile";
 export default function Home(){
 
     return(
@@ -25,23 +26,29 @@ export default function Home(){
           <div className="insert-page">
           <Switch>
 
+
           <Route path="/post">
          <> <div className="h3 p-3">Letest Posts</div>
-         <CreatePost></CreatePost>
-       
-          </>
+         {PostData.map((d)=>{
+          return <Postpage key={d.id} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+          })}
+            </>
         </Route>
           <Route path="/search">
             <RightNavbar></RightNavbar>
           </Route>
           <Route path="/reels">
-          <CreatePost></CreatePost>
+          
           </Route>
           <Route path="/profile">
-           <Emoji></Emoji>
+          <Profile name={PostData.name}></Profile>
           </Route>
           <Route path="/saved">
            <>saved</>
+          </Route>
+          <Route path="/">
+            <h3>Letest Post</h3>
+            <CreatePost></CreatePost>
           </Route>
           </Switch>
           </div>

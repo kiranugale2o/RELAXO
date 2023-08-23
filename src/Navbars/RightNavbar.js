@@ -28,7 +28,7 @@ let user=[];
      
     let result;
     result=postdata.map((d)=>{
-      return <Searchuser key={d.id} posts={d.posts} id={d.id} name={d.name} username={d.username} userImg={d.userImage} userback={d.userBackground} userbio={d.userBio} userlink={d.userLink} userjoin={d.userJoin} following={d.following} followers={d.followers} ></Searchuser>
+      return <Searchuser key={d.id}  posts={d.posts} id={d.id} name={d.name} username={d.username} userImg={d.userImage} userback={d.userBackground} userbio={d.userBio} userlink={d.userLink} userjoin={d.userJoin} following={d.following} followers={d.followers} ></Searchuser>
       
     })
     return(

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
  import Postpage from "../PostHandle/Postpage";
  import PostData from '../Relaxobackend/PostData';
+ import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 import './createpost.css';
 import Picker from 'emoji-picker-react';
 import { initializeApp } from "firebase/app";
@@ -28,18 +30,36 @@ export default function CreatePost(){
   setEmoji(event.emoji);
 	};
   const[userVal,setVal]=useState(data);
-
-  
+ const[btndis,setBtnDis]=useState();
+  const[vishow,setVishow]=useState("none");
    const[post,setPost]=useState(null);
    const[posttext,setposttext]=useState("");
    const[height,setHeight]=useState(0);
   const[showemoji,setShowemoji]=useState("none");
   const[page,setpage]=useState(true);
   const[myemoji,setEmoji]=useState("");
+  const[myvideo,setVideo]=useState("");
   const img=document.createElement('img');
   const sendData=(event)=>{
     
     
+  }
+  const imgSender=(event)=>{
+    const  iname=event.target.files[0];
+   
+    const mountainsRef = ref(storage,`postimg/${iname.name}` );
+
+// Create a reference to 'images/mountains.jpg'
+const mountainImagesRef = ref(storage, `postimg/${iname}`);
+ uploadBytes(mountainsRef,iname).then(()=>{
+  getDownloadURL(ref(storage, `postimg/${iname.name}`)).then((url)=>{
+   setPost(url);
+   
+ 
+   
+  })
+  
+ })
   }
 
   const postd=document.createElement('video');
@@ -58,55 +78,51 @@ console.log(post);
   postd.controls=true;
   postd.height=200;
   postd.width=400;
-  document.getElementById('vi').appendChild(postd);
+setVideo(url);
       //myvideo.play();
-     
+     setVishow("block");
     })
   })
   
   }
-
+  
   const postSender=(event)=>{
     event.preventDefault();
-//image part
-const iname=event.target.image.files[0];
-   
-    const mountainsRef = ref(storage,`postimg/${iname.name}` );
-
-// Create a reference to 'images/mountains.jpg'
-const mountainImagesRef = ref(storage, `postimg/${iname}`);
- uploadBytes(mountainsRef,iname).then(()=>{
-  getDownloadURL(ref(storage, `postimg/${iname.name}`)).then((url)=>{
-   setPost(url);
-   
-  document.getElementById('vi').appendChild(img);
-   
-  })
-  
- })
- 
-
-
-
-    
-        setpage(false);
+    if((posttext===null)&& ( post===null)){
+      
+       
+              toast.error("First create post ! ");
+       alert("nahi")
+           
+      
+    }
+     
         PostData.unshift({
           id:"username",
           name:"kiran ugale",
           username:"@kiran_ugale2",
-          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
-          post:posttext +""+myemoji,
+          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fprofiledp.jpg?alt=media&token=caee54fe-39a8-49a0-8510-249e4ed3575a",
+        post:posttext +""+myemoji,
           imageUrl:post,
-          
+          vishow:vishow,
+          myvideo:myvideo,
           like:0,
         })
        
-      
+      setPost("");
+      setVideo("");
         setposttext("");
+        setChosenEmoji(null);
+        if(myvideo===null){
+          setVishow("none");
+        }
+        //show page
+        setpage(false);
+        setVishow("none");
         
-        console.log(PostData);
-       
-  }
+      
+      }
+  
      
    
     return(
@@ -117,19 +133,23 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
   <div class="card-body" style={{height:"auto"}}>
     <div className="input-part" style={{display:"flex"}}>
   <div class="user-img" style={{width:"10%",height:"50px"}}>
-    <img  style={{width:"100%",height:"100%",borderRadius:"50%"}}src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7" alt="user"></img>
+    <img  style={{width:"100%",height:"100%",borderRadius:"50%"}}src="https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fprofiledp.jpg?alt=media&token=caee54fe-39a8-49a0-8510-249e4ed3575a" alt="user"></img>
      </div>
     
-<div className="post-data" style={{display:"flex"}}>
+<div className="post-data" style={{display:"flex",width:"100%"}}>
  
-  <textarea  placeholder=" SHARE YOUR THINK !"class="form-control" value={posttext}  id="exampleFormControlTextarea1" onChange={(e)=>{setposttext(e.target.value)}} style={{borderStyle:"none",fontSize:"medium",width:"80%"}} rows="3"></textarea>
-  {chosenEmoji?
-   <span style={{width:"auto"}}>{chosenEmoji.emoji} </span>  :""
-}
-     <div className="files-data" style={{width:"80%"}}>
-    <div id="vi" style={{height:"auto",margin:"0px" ,width:"90%" ,display:"flex"}}> </div>
+  <textarea  placeholder=" SHARE YOUR THINK !"class="form-control" value={posttext}  id="exampleFormControlTextarea1" onChange={(e)=>{setposttext(e.target.value)}} style={{borderStyle:"none",fontSize:"medium",width:"100%"}} rows="3"></textarea>
+   {chosenEmoji?
+   <span style={{width:"auto"}} >{chosenEmoji.emoji} </span>  :""
+}   
    </div>
+  
    </div>
+   <div className="files-data" style={{width:"auto" ,display:"flex",margin:"0% 0px",height:"auto"}}>
+      <img src={post}  style={{width:"50%"}}alt=""></img>
+      <video className="video-container video-container-overlay" style={{display:`${vishow}`}}  controls data-reactid=".0.1.0.0">
+<source type="video/mp4" data-reactid=".0.1.0.0.0" src={myvideo}></source>
+</video>
    </div>
      <div className="send-data" style={{display:"flex",width:"30%"}}>
       <div className="img-with-icon" style={{display:"flex"}}><label htmlFor="inimg">
@@ -139,7 +159,7 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
 </svg>
 </label>
 
-<input type="file" name="image" style={{display:"none"}}  id="inimg"></input>
+<input type="file" name="image" style={{display:"none"}} onChange={imgSender} id="inimg"></input>
 
 </div>
 <div className="video-with-icon" style={{display:"flex"}}>
@@ -161,12 +181,12 @@ const mountainImagesRef = ref(storage, `postimg/${iname}`);
 </label>
   <div className="" id="inem" style={{display:`${showemoji}`,width:"20%",height:"auto" ,position:"fixed",top:"10%",left:"40%"}}> 	<Picker style={{width:"20%",height:"100px"}} onEmojiClick={onEmojiClick} />   </div>
     </div></div>
-    <button type="submit" className="btn btn-success">Post</button>
-    
+    <button type="submit" className={`btn btn-primary `}  >Post</button>
+    <ToastContainer />
      </div>
 </div></form>
 {PostData.map((d)=>{
-          return <Postpage key={d.id} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+          return <Postpage key={d.id} myvideo={d.myvideo} vishow={d.vishow} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
           })}
 </>
     );

@@ -1,8 +1,7 @@
 
 #card-box{
     width: 100%;
-    margin: auto;
-    position:-webkit-sticky;
+    margin: auto 30% ;
 
 }
 .card-nav{
@@ -38,7 +37,9 @@
 .card-footer{
     margin: auto;
 }
-
+.card-text{
+    font-weight: 600;
+}
 
 
 

@@ -1,43 +1,38 @@
 import React,{useState} from "react";
 import './postpage.css';
 import CreatePost from "../Component/CreatePost";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 export default function Postpage(props){
 const[show ,setShow]=useState("none");
 const[followBtn,setfollowBtn]=useState("Follow");
-const [alertd, setAlert]=useState("none");
 const [colorN,setcolor]=useState("black");
 const [like,setLike]=useState(props.like);
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
 
- alertPlaceholder.append(wrapper);
-  
-}
 
 const alertBtn=()=> {
-     if(followBtn==="Follow"){
-    appendAlert(`Follow By${props.username}`, 'success')
-     }else{
-      appendAlert(`Unfollow By${props.username} `, 'danger ')
-   
-     }
+   if(followBtn==="Follow"){
+    toast.success("Follow By@"+props.username,{
+      position: toast.POSITION.BOTTOM_RIGHT,
+      width:"100%",
+      height:"40px"
+    });
+   }else{
+    toast.error("UnFollow By@"+props.username,{
+      position: toast.POSITION.BOTTOM_RIGHT,
+      width:"100%",
+      height:"40px"
+    });
+   }
+  
 }
 
     return(
 
         <>
-        <div id="liveAlertPlaceholder" style={{display:`${setAlert}`}}></div>
-        <div id="liveAlertPlaceholder" style={{display:`${setAlert}`}}></div>
-
+        
   
-<div className="card shadow-none p-3 mb-2 bg-body-white rounded" style={{ width: "100%" ,position:"none"}}>
+<div className="card shadow-none p-1 mb-5 3 bg-body-white rounded" style={{ width: "90%" ,position:"none",margin:"auto 10%"}}>
   <div className="card-body" style={{width:"100%"}} >
   <div className="card-nav" style={{display:"flex"}}>
         <img src={props.userImage}    style={{width:"14%" ,height:"60px",borderRadius:"50%" ,borderStyle:"none" ,borderColor:"black"}} ></img>
@@ -45,7 +40,8 @@ const alertBtn=()=> {
  
     <h5 className="card-title" style={{width:"70%"}}>{props.name}</h5>
     <h6 className="card-subtitle mb-2 text-body-secondary">{props.username}</h6>
-    <button type="button " id="liveAlertBtn" className="btn btn-primary" style={{ display:`${show}` , width:"20%" ,position:"absolute",top:"16%", left:"70%"}}  onClick={()=>{     if(followBtn==="Follow"){ setfollowBtn("Following"); setAlert("none");setShow("none")}else{setfollowBtn("Follow");setShow("none")} alertBtn();}}>{followBtn}</button>
+    <button type="button " id="liveAlertBtn" className="btn btn-primary" style={{ display:`${show}` , width:"20%" ,position:"absolute",top:"16%", left:"70%"}}  onClick={()=>{     if(followBtn==="Follow"){ setfollowBtn("Following"); ;setShow("none")}else{setfollowBtn("Follow");setShow("none")} alertBtn();}}>{followBtn}</button>
+    <ToastContainer />
     </div>
     <div className="follow-btn"  style={{position:"relative",width:" 50px",height:"20px" ,right:"0px",backgroundColor:"white" }}>
     <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>{if(show==="none"){ setShow("block"); } else {setShow("none");}}} style={{width:"20px" ,height:"20px",background:"none"}} fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -60,6 +56,9 @@ const alertBtn=()=> {
 
     <div className="card">
     <img src={props.postImg}  style={{height:`${props.height}px`}} className="card-img-top" alt="" />
+    <video className="video-container video-container-overlay" style={{display:`${props.vishow}`,width:"400px",height:"200px"}}  controls data-reactid=".0.1.0.0">
+<source type="video/mp4" data-reactid=".0.1.0.0.0" src={props.myvideo}></source>
+</video>
       </div>
       
     

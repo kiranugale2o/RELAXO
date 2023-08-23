@@ -1,5 +1,6 @@
  .home-page{
     width: 100%;
+   
     justify-content: space-between;
  }
 .leftbar{
@@ -37,7 +38,7 @@
     .insert-page{
        margin: 20% 0%;
     background: none;
-      width: 100%;
+      width: 80%;
     }
     .rightbar{
     display: none;

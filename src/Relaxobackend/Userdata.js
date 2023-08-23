@@ -1,4 +1,4 @@
-
+import PostData from "./PostData";
 const Userdata=[
     {
         id:1,
@@ -14,18 +14,18 @@ const Userdata=[
         post:1,
         posts:[
           
-            {
-              id:1,
-               name:"Kiran Ugale",
-               userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fme.jpg?alt=media&token=404d40eb-a14a-4ee4-9d1b-b6b013a07623",
-               username:"@kiranugale2o",
-               post:" “I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.”",
-               imageUrl:" ",
-               height:"0",
-               like:25,
-               comment:16,
-        
-            },
+          {
+            id:1,
+             name:"Kiran Ugale",
+             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fme.jpg?alt=media&token=404d40eb-a14a-4ee4-9d1b-b6b013a07623",
+             username:"@kiranugale2o",
+             post:" “I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.”",
+             imageUrl:" ",
+             height:"0",
+             like:25,
+             comment:16,
+             vishow:"none"
+          },
           
         ]
   
