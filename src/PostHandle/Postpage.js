@@ -57,9 +57,10 @@ const alertBtn=()=> {
 }
 
  const saveHandler=()=>{
-      Savepost.push({
-        username:props.username
+      Savepost.unshift({
+        username:props.username,
       });
+      toast.success("saved");
       console.log(Savepost);
  }
     return(

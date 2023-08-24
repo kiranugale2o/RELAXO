@@ -16,6 +16,7 @@ import Emoji from "./Emoji";
 import Profile from "./Profile";
 import Profiledata from "../Relaxobackend/Profiledata";
 import Saved from "./Saved";
+import Savepost from "../Relaxobackend/Savepost";
 export default function Home(){
  const d=Profiledata[0];
  console.log(d);
@@ -47,7 +48,16 @@ export default function Home(){
          
           <Route path="/saved">
            <>saved</>
+           <div style={{position:"absolute",right:"35%",width:"40%"}}> 
+           {
+            Savepost.map((d)=>{
+              return <Postpage key={d.id} vishow="none"  name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+ 
+            })
+           }
            <Saved></Saved>
+           </div>
+          
           </Route>
           <Route path="/profile">
             <div style={{width:"auto"}}>
