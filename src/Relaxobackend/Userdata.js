@@ -41,6 +41,7 @@ const Userdata=[
          userJoin:"Joined march 25 2023",
          following:0,
          followers:5,
+         post:1,
          posts:[
           {
             id:2,
@@ -70,16 +71,17 @@ const Userdata=[
          following:100,
          posts:[
           {
-            id:2,
-             name:"Riya Singh",
-             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
-             username:"@riya__So",
-             post:" this is My favourite Progarmmer !",
-             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
-             height:"300",
-             like:250,
-             comment:116,
-          },
+            id:1,
+             name:"Roy JK",
+             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Froy.jpeg?alt=media&token=cf1298bc-2b95-4456-bdba-adddb117003e",
+             username:"@Roy_JK00o",
+             post:"“I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.”",
+             imageUrl:"",
+             height:"0",
+             like:45,
+             vishow:"none",
+             comment:16,
+          }
          ]
       },
      
@@ -95,17 +97,7 @@ const Userdata=[
         followers:55,
         following:10,
         posts:[
-          {
-            id:2,
-             name:"Riya Singh",
-             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
-             username:"@riya__So",
-             post:" this is My favourite Progarmmer !",
-             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
-             height:"300",
-             like:250,
-             comment:116,
-          },
+         
          ]
       }
       ,
@@ -121,17 +113,7 @@ const Userdata=[
          followers:20,
          following:12,
          posts:[
-          {
-            id:2,
-             name:"Riya Singh",
-             userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friya.jpeg?alt=media&token=ee158449-4c07-4f81-ad9d-604070330ea7",
-             username:"@riya__So",
-             post:" this is My favourite Progarmmer !",
-             imageUrl:'https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Ffevprogrammer.jpeg?alt=media&token=b01761fc-db58-4c11-802f-b1b5536a040f',
-             height:"300",
-             like:250,
-             comment:116,
-          },
+          
          ]
       },
 

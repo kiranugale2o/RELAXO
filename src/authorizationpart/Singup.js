@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import Profiledata from "../Relaxobackend/Profiledata";
 import { getDatabase,ref,set,get,child } from "firebase/database";
-
+import Home from "../Component/Home";
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { getAuth ,createUserWithEmailAndPassword} from "firebase/auth";
@@ -43,20 +43,35 @@ const provider = new GoogleAuthProvider();
       event.preventDefault();
       const fname=event.target.fname.value;
       const lname=event.target.lname.value;
+      const link=event.target.link.value;
+      const bio=event.target.bio.value;
       const username=event.target.username.value;
       const email=event.target.email.value;
       const password=event.target.pass.value;
      setName(fname+" "+lname)
       const db = getDatabase();
       set(ref(db, `users/${username}`), {
-       name:fname+" "+ lname,
+       name:fname+"  "+ lname,
        username:username,
        email:email,
        password:password,
-      
+       link:link,
+       bio:bio,
       })
       .then(()=>{
         alert("successful Register");
+        Profiledata.unshift({
+          name:fname +""+lname,
+          username:username,
+          profileImg:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/postimg%2Fprofiledp.jpg?alt=media&token=b0f8e52d-4592-4996-9afd-a53fda1e12b8",
+          userback:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friyaback.jpg?alt=media&token=2c120c28-62e5-4955-b9a4-855a2b730725",
+          userbio:bio,
+          userlink:link,
+              followers:0,
+          following:0,
+          post:0,
+          
+        });
         setPage(true);
       })
     }
@@ -74,6 +89,8 @@ const provider = new GoogleAuthProvider();
     const user = result.user;
     // IdP data available using getAdditionalUserInfo(result)
     // ...
+    console.log(user);
+    setPage(true);
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -97,7 +114,7 @@ const provider = new GoogleAuthProvider();
 
     return(
         <>
-    {userpage?<>fuihefuihfuih</>:
+    {userpage?<Home></Home>:
 
         <div className="container   border border-secondary  " id="singup-form">
           <form className="form"  onSubmit={singupHandler} style={{width:"100%"}}>
@@ -110,10 +127,17 @@ const provider = new GoogleAuthProvider();
            <br></br>
            <input type="text" className="form-control" name="username" placeholder="Username"/>
            <br></br>
-        <input type="email" className="form-control" name="email" placeholder="Email address"/>
+           <div style={{display:"flex"}}>
+           <input type="email" className="form-control" name="email" placeholder="Email address"/>
         <br></br>
-           <input type="password" className="form-control" name="pass"  placeholder="Password"/>
+        <input type="password" className="form-control" name="pass"  placeholder="Password"/>
+        </div>
 <br></br>
+        <input type="text" className="form-control" name="bio" placeholder="Enter Bio "/>
+       <br></br>
+       <input type=" text" className="form-control" name="link"  placeholder="Enter your Business link "/>
+
+           <br></br>
            <button type="submit" style={{width:"100%",margin:"auto"}}className="btn btn-primary"  id="btn">Sing UP</button>
         
         <br></br>

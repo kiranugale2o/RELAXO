@@ -1,17 +1,26 @@
 import React, { useState ,useEffect} from "react";
  import Postpage from "../PostHandle/Postpage";
+ import Profiledata from "../Relaxobackend/Profiledata";
  import PostData from '../Relaxobackend/PostData';
  import { ToastContainer, toast } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css';
+ import { initializeApp } from "firebase/app";
 import './createpost.css';
 import Picker from 'emoji-picker-react';
-import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage";
 import { StaticRouter } from "react-router-dom/cjs/react-router-dom";
 import userEvent from "@testing-library/user-event";
 //import Emoji from "./Emoji";
+const firebaseConfig = {
+  apiKey: "AIzaSyCNuaXI45NhX6jwb01xtfEDguKJiBkeWY4",
+  authDomain: "relaxo-social.firebaseapp.com",
+  projectId: "relaxo-social",
+  storageBucket: "relaxo-social.appspot.com",
+  messagingSenderId: "919379973745",
+  appId: "1:919379973745:web:74c233ac9df6badf706dd0"
+};
 // Initialize Firebase
-//initializeApp(firebaseConfig)
+initializeApp(firebaseConfig)
 
 // Create a root reference
 const storage = getStorage();
@@ -98,13 +107,14 @@ setVideo(url);
     }
      
         PostData.unshift({
-          id:"username",
-          name:"kiran ugale",
-          username:"@kiran_ugale2",
+          id:`${Profiledata[0].username}`,
+          name:`${Profiledata[0].name}`,
+          username:`${Profiledata[0].username}`,
           userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fprofiledp.jpg?alt=media&token=caee54fe-39a8-49a0-8510-249e4ed3575a",
         post:posttext +""+myemoji,
           imageUrl:post,
           vishow:vishow,
+        
           myvideo:myvideo,
           like:0,
         })
@@ -127,7 +137,7 @@ setVideo(url);
    
     return(
 <>
-
+<div id="main">
 <form onSubmit={postSender}>
 <div class="card w-100 mb-4" id="create-card">
   <div class="card-body" style={{height:"auto"}}>
@@ -188,6 +198,7 @@ setVideo(url);
 {PostData.map((d)=>{
           return <Postpage key={d.id} myvideo={d.myvideo} vishow={d.vishow} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
           })}
+          </div>
 </>
     );
 }

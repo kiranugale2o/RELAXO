@@ -3,6 +3,7 @@ import './home.css';
 import PostData from '../Relaxobackend/PostData'
 import RightNavbar from "../Navbars/RightNavbar";
 import Postpage from "../PostHandle/Postpage";
+import UserProfile from "./UserProfile";
 import LeftNavbar from "../Navbars/LeftNavbar";
 import {
     BrowserRouter as Router,
@@ -13,8 +14,11 @@ import {
 import CreatePost from "./CreatePost";
 import Emoji from "./Emoji";
 import Profile from "./Profile";
+import Profiledata from "../Relaxobackend/Profiledata";
+import Saved from "./Saved";
 export default function Home(){
-
+ const d=Profiledata[0];
+ console.log(d);
     return(
        <>
        <Router>
@@ -40,16 +44,33 @@ export default function Home(){
           <Route path="/reels">
           
           </Route>
-          <Route path="/profile">
-          <Profile name={PostData.name}></Profile>
-          </Route>
+         
           <Route path="/saved">
            <>saved</>
+           <Saved></Saved>
+          </Route>
+          <Route path="/profile">
+            <div style={{width:"auto"}}>
+             
+    
+        
+    <UserProfile key={d.id}  name={d.name} userback={d.userback} userlink={d.userlink} following={d.following} followers={d.followers} userjoin={d.userjoin}  username={d.username} profileImg={d.profileImg} userbio={d.userbio} ></UserProfile>
+ 
+   
+    
+
+
+      
+   
+   
+     </div>
+     
           </Route>
           <Route path="/">
             <h3>Letest Post</h3>
             <CreatePost></CreatePost>
           </Route>
+
           </Switch>
           </div>
           <div className="rightbar">

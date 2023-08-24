@@ -2,7 +2,10 @@ import React ,{useState,useEffect}from 'react';
 import './rightnav.css';
 import { BsSearch } from 'react-icons/bs';
 import Userdata from '../Relaxobackend/Userdata';
+import Profiledata from '../Relaxobackend/Profiledata';
 import Searchuser from './Searchuser';
+import Profile from '../Component/Profile';
+import { Route, Router, Switch } from 'react-router-dom/cjs/react-router-dom';
 export default function RightNavbar(){
 
     const [postdata,setdata]=useState([]);
@@ -33,6 +36,10 @@ let user=[];
     })
     return(
 <>
+
+  
+  
+    
 <div className='search-area'>
   <div className='search'>
    <input className='form-control' placeholder={`Search User`} type='text' onChange={
@@ -47,6 +54,8 @@ let user=[];
 </div>
 </div>
 
+
+  
 </>
     );
 

@@ -5,11 +5,12 @@ import './singup.css';
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { getDatabase, ref, child, get } from "firebase/database";
 
-
+import Home from "../Component/Home";
 
 import { initializeApp } from "firebase/app";
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Profiledata from "../Relaxobackend/Profiledata";
 
 
 const firebaseConfig = {
@@ -32,6 +33,7 @@ const [name,setName]=useState(null);
 const [email, setEmail]=useState(null);
 const [userpage,setPage]=useState(false);
   const login=(event)=>{
+    
     event.preventDefault();
     const username=event.target.username.value;
     const dbRef = ref(getDatabase());
@@ -42,7 +44,21 @@ get(child(dbRef, `users/${username}`)).then((snapshot) => {
     setPage(true);
 setName(data.name);
 setEmail(data.email);
-
+const date=new Date();
+Profiledata.unshift({
+  name:data.name,
+  username:data.username,
+  profileImg:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/postimg%2Fprofiledp.jpg?alt=media&token=b0f8e52d-4592-4996-9afd-a53fda1e12b8",
+  userback:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friyaback.jpg?alt=media&token=2c120c28-62e5-4955-b9a4-855a2b730725",
+  userbio:"",
+  userlink:"",
+  userjoin:`Joined by ${date.getDate()+"_"+date.getMonth()+"_"+date.getFullYear()}`,
+  followers:0,
+  following:0,
+  post:1,
+  
+});
+ console.log(Profiledata);
   }else{
     alert("SORRY YOU ARE NOT USER OF RELAXO . SO PLEASE  CREATE YOUR ACCAOUNT IN RELAXO ")
   }
@@ -76,7 +92,7 @@ signInWithEmailAndPassword(auth, username, password)
 
     return(
 <>
-{userpage ? <>login </>:
+{userpage ? <Home></Home>:
 <div className="container   border border-secondary" id="singup-form">
           <form className="form" onSubmit={login} style={{width:"100%"}}>
             <h3 className="text-center" style={{height:"50px",backgroundColor:"white"}}>Login</h3>

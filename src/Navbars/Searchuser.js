@@ -56,7 +56,7 @@ export default function Searchuser(props){
   
  
     <div className="list-group-item" style={{display:"flex"}}>
-    <Link to={`/d`} onClick={sendData} style={{display:"flex"}} id="link">
+    <Link to={`${props.username}`} onClick={sendData} style={{display:"flex"}} id="link">
         <img src={props.userImg}  style={{width:"23%",margin:"0px",height:"90%",borderRadius:"50%"}}/>
         
           <div  style={{margin:"0px 10px",width:"60%",display:"block",background:"none"}}>

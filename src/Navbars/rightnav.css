@@ -1,6 +1,6 @@
 .search-area{
-    width: 29%;
-   position: fixed;
+    width: 30%;
+   position: absolute;
     right: 0%;
     height: 600px;
     background-color: aliceblue;

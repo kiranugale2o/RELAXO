@@ -1,16 +1,44 @@
 import React,{useState} from "react";
 import './postpage.css';
+import Profile from "../Component/Profile";
 import CreatePost from "../Component/CreatePost";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import Profiledata from "../Relaxobackend/Profiledata";
+import PostData from "../Relaxobackend/PostData";
+import Savepost from "../Relaxobackend/Savepost";
 export default function Postpage(props){
 const[show ,setShow]=useState("none");
 const[followBtn,setfollowBtn]=useState("Follow");
 const [colorN,setcolor]=useState("black");
 const [like,setLike]=useState(props.like);
+const[delshow,setdelshow]=useState("none");
 
 
+const deleteHandler=()=>{
+  
+  if((Profiledata[0].username)===(props.username) ){
+    if(delshow==="none"){
+    setdelshow("block")
+   setShow("none");
+  
+   }else{
+    setdelshow("none")
+    setShow("none");
+   }
+  }
+}
+const postDeleter=()=>{
+  PostData.shift();
+   setdelshow("none");
+     toast.error("Post is delete check profile",{
+    position: toast.POSITION.BOTTOM_RIGHT,
+   
+  })
+}
 const alertBtn=()=> {
+  
+ 
    if(followBtn==="Follow"){
     toast.success("Follow By@"+props.username,{
       position: toast.POSITION.BOTTOM_RIGHT,
@@ -25,8 +53,15 @@ const alertBtn=()=> {
     });
    }
   
+  
 }
 
+ const saveHandler=()=>{
+      Savepost.push({
+        username:props.username
+      });
+      console.log(Savepost);
+ }
     return(
 
         <>
@@ -34,17 +69,18 @@ const alertBtn=()=> {
   
 <div className="card shadow-none p-1 mb-5 3 bg-body-white rounded" style={{ width: "90%" ,position:"none",margin:"auto 10%"}}>
   <div className="card-body" style={{width:"100%"}} >
-  <div className="card-nav" style={{display:"flex"}}>
+  <div className="card-nav" style={{display:"flex"}} >
         <img src={props.userImage}    style={{width:"14%" ,height:"60px",borderRadius:"50%" ,borderStyle:"none" ,borderColor:"black"}} ></img>
    <div className="card-info" style={{display:"block",margin:"auto"}}>
  
     <h5 className="card-title" style={{width:"70%"}}>{props.name}</h5>
     <h6 className="card-subtitle mb-2 text-body-secondary">{props.username}</h6>
-    <button type="button " id="liveAlertBtn" className="btn btn-primary" style={{ display:`${show}` , width:"20%" ,position:"absolute",top:"16%", left:"70%"}}  onClick={()=>{     if(followBtn==="Follow"){ setfollowBtn("Following"); ;setShow("none")}else{setfollowBtn("Follow");setShow("none")} alertBtn();}}>{followBtn}</button>
+    <button type="button " id="liveAlertBtn" className="btn btn-primary" style={{ display:`${show}` , width:"20%" ,position:"absolute",top:"12%", left:"70%"}}  onClick={()=>{     if(followBtn==="Follow"){ setfollowBtn("Following"); ;setShow("none")}else{setfollowBtn("Follow");setShow("none")} alertBtn();}}>{followBtn}</button>
+    <button type="button" id="liveAlertBtn" className="btn btn-danger" onClick={postDeleter } style={{ display:`${delshow}` , width:"20%" ,position:"absolute",top:"12%", left:"70%"}}>Delete</button>
     <ToastContainer />
     </div>
     <div className="follow-btn"  style={{position:"relative",width:" 50px",height:"20px" ,right:"0px",backgroundColor:"white" }}>
-    <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>{if(show==="none"){ setShow("block"); } else {setShow("none");}}} style={{width:"20px" ,height:"20px",background:"none"}} fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+    <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>{if(show==="none") { setShow("block"); } else {setShow("none"); } {setdelshow("none")}deleteHandler()}} style={{width:"20px" ,height:"20px",background:"none"}} fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
   <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
 </svg>
    </div>
@@ -79,7 +115,7 @@ const alertBtn=()=> {
 </svg>
 <p style={{margin:"-5px -17px"}} >{props.comment}</p>
 </div>
-<div className="each-icon" style={{display :"flex"}}>
+<div className="each-icon" style={{display :"flex"}}  onClick={saveHandler}>
      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
   <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
@@ -94,6 +130,7 @@ const alertBtn=()=> {
      </div>
     </div>
 </div>
+
 
 
         

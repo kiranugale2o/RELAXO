@@ -32,6 +32,9 @@ function App(props) {
       <Route path="/singup">
         <Singup></Singup>
       </Route>
+      <Route path="/register">
+        <Register></Register>
+      </Route>
    
       <Route path="/">
 <Home></Home>
