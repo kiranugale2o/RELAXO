@@ -24,7 +24,7 @@ export default function UserProfile(props){
 
         return(
     <>
-    <div className="" style={{display:"block",height:"100%",width:"70%"}}>
+    <div className="userfixprofile" >
      <div className="profile border">
         <div className="backimg">
         <img src={props.userback}  style={{height:"100%",width:"100%",margin:" 20px auto"}} id="backi" ></img>

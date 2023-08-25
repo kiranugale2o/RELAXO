@@ -34,12 +34,14 @@ export default function CreatePost(){
 
   const[chosenEmoji, setChosenEmoji] = useState(null);
   
-	const onEmojiClick = (event, emojiObject) => {
+	const onEmojiClick = (event) => {
 		setChosenEmoji(event);
-  setEmoji(event.emoji);
+     setEmoji(event.emoji);
+  
+     setShowemoji("none")
 	};
   const[userVal,setVal]=useState(data);
- const[btndis,setBtnDis]=useState();
+ const[btndis,setBtnDis]=useState("none");
   const[vishow,setVishow]=useState("none");
    const[post,setPost]=useState(null);
    const[posttext,setposttext]=useState("");
@@ -97,14 +99,11 @@ setVideo(url);
   
   const postSender=(event)=>{
     event.preventDefault();
-    if((posttext===null)&& ( post===null)){
+  console.log((post===null))
+    if((posttext==="")  && ( post==="") && (myvideo==="") && (myemoji==="") ){
+       toast.error(` Sorry  First create post ! `);
       
-       
-              toast.error("First create post ! ");
-       alert("nahi")
-           
-      
-    }
+    }else{
      
         PostData.unshift({
           id:`${Profiledata[0].username}`,
@@ -122,7 +121,8 @@ setVideo(url);
       setPost("");
       setVideo("");
         setposttext("");
-        setChosenEmoji(null);
+      setEmoji("")
+        setChosenEmoji(false);
         if(myvideo===null){
           setVishow("none");
         }
@@ -130,7 +130,7 @@ setVideo(url);
         setpage(false);
         setVishow("none");
         
-      
+    }
       }
   
      

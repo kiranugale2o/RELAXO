@@ -69,6 +69,7 @@ console.log(profilePost);
      </div>
      <br></br>
      <div className="user-profiles">
+      <div className="p-3 h4">Posts</div>
   { (props.posts).map((d)=>{
      return <Postpage key={d.id} vishow={d.vishow}  name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
     })}

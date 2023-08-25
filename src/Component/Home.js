@@ -47,15 +47,10 @@ export default function Home(){
           </Route>
          
           <Route path="/saved">
-           <>saved</>
+          <div className="p-3 h3">Saved Posts</div>
            <div style={{position:"absolute",right:"35%",width:"40%"}}> 
-           {
-            Savepost.map((d)=>{
-              return <Postpage key={d.id} vishow="none"  name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
- 
-            })
-           }
-           <Saved></Saved>
+           
+          <Saved></Saved>
            </div>
           
           </Route>
@@ -77,7 +72,7 @@ export default function Home(){
      
           </Route>
           <Route path="/">
-            <h3>Letest Post</h3>
+            <div className="p-3 h3">Letest Post</div>
             <CreatePost></CreatePost>
           </Route>
 

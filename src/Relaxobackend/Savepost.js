@@ -1,6 +1,6 @@
 const Savepost=[
 {
-    username:"",
+    username:""
 }
 ];
 

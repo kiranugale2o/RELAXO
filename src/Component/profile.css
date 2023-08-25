@@ -4,6 +4,11 @@
 margin: 0px;
    display: block;
 }
+.userfixprofile{
+    display:block;
+
+    width:70%;
+}
 .backimg{
     width: 90%;
     height: 150px;
@@ -71,6 +76,11 @@ margin: 0px;
         width: 100%;
     margin:0px 0px;
     border-radius:none;
+    }
+    .userfixprofile{
+        display:block;
+    
+        width:100%;
     }
     .backimg{
         width: 100%;
