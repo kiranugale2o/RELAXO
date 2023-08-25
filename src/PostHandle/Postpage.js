@@ -68,8 +68,8 @@ const alertBtn=()=> {
         <>
         
   
-<div className="card shadow-none p-1 mb-5 3 bg-body-white rounded" style={{ width: "90%" ,position:"none",margin:"auto 10%"}}>
-  <div className="card-body" style={{width:"100%"}} >
+<div className="card shadow-none p-1 mb-5 3 bg-body-white rounded" style={{ width: "90%" ,position:"none",margin:"auto 10%" }}>
+  <div className="card-body"   >
   <div className="card-nav" style={{display:"flex"}} >
         <img src={props.userImage}    style={{width:"14%" ,height:"60px",borderRadius:"50%" ,borderStyle:"none" ,borderColor:"black"}} ></img>
    <div className="card-info" style={{display:"block",margin:"auto"}}>
@@ -91,7 +91,7 @@ const alertBtn=()=> {
     </p>
     
 
-    <div className="card">
+    <div className="card" >
     <img src={props.postImg}  style={{height:`${props.height}px`}} className="card-img-top" alt="" />
     <video className="video-container video-container-overlay" style={{display:`${props.vishow}`,width:"400px",height:"200px"}}  controls data-reactid=".0.1.0.0">
 <source type="video/mp4" data-reactid=".0.1.0.0.0" src={props.myvideo}></source>

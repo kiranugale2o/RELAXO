@@ -6,9 +6,11 @@ import Home from "../Component/Home";
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { getAuth ,createUserWithEmailAndPassword} from "firebase/auth";
-
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 import './singup.css';
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import Userdata from "../Relaxobackend/Userdata";
 
 
 
@@ -59,7 +61,7 @@ const provider = new GoogleAuthProvider();
        bio:bio,
       })
       .then(()=>{
-        alert("successful Register");
+       toast.success("Successful Singup ");
         Profiledata.unshift({
           name:fname +""+lname,
           username:username,
@@ -72,7 +74,22 @@ const provider = new GoogleAuthProvider();
           post:0,
           
         });
+        const date=new Date();
+        Userdata.unshift({
+          name:fname +""+lname,
+          username:username,
+          userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/postimg%2Fprofiledp.jpg?alt=media&token=b0f8e52d-4592-4996-9afd-a53fda1e12b8",
+          userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Friyaback.jpg?alt=media&token=2c120c28-62e5-4955-b9a4-855a2b730725",
+          userBio:bio,
+          userLink:link,
+          userJoin:"Joined By "+date.getDate()+"_"+date.getMonth()+"_"+date.getFullYear(),
+              followers:0,
+              posts:[],
+          following:0,
+          post:0,
+        })
         setPage(true);
+       
       })
     }
     
@@ -121,16 +138,16 @@ const provider = new GoogleAuthProvider();
             <h3 className="text-center" style={{height:"50px",backgroundColor:"white"}}>Sing Up</h3>
            <div className="user-name" style={{display:"flex"
           ,width:"100%",backgroundColor:"white"}}>
-            <input type="text" className="form-control" name="fname" placeholder="First Name" />
-            <input type="text" className="form-control" name="lname"  placeholder="Last Name"/>
+            <input type="text" className="form-control" required name="fname" placeholder="First Name" />
+            <input type="text" className="form-control" required name="lname"  placeholder="Last Name"/>
            </div>
            <br></br>
-           <input type="text" className="form-control" name="username" placeholder="Username"/>
+           <input type="text" className="form-control" required name="username" placeholder="Username"/>
            <br></br>
            <div style={{display:"flex"}}>
-           <input type="email" className="form-control" name="email" placeholder="Email address"/>
+           <input type="email" className="form-control" required name="email" placeholder="Email address"/>
         <br></br>
-        <input type="password" className="form-control" name="pass"  placeholder="Password"/>
+        <input type="password" className="form-control" required name="pass"  placeholder="Password"/>
         </div>
 <br></br>
         <input type="text" className="form-control" name="bio" placeholder="Enter Bio "/>
@@ -138,8 +155,9 @@ const provider = new GoogleAuthProvider();
        <input type=" text" className="form-control" name="link"  placeholder="Enter your Business link "/>
 
            <br></br>
+         
            <button type="submit" style={{width:"100%",margin:"auto"}}className="btn btn-primary"  id="btn">Sing UP</button>
-        
+         
         <br></br>
           <Link to="/login" style={{fontSize:"18px",width:"30%",margin:"auto 40px",backgroundColor:"white"}}  className="text-center" href="#" >Already  Have an account {">"}</Link> 
           <br></br>
@@ -147,7 +165,7 @@ const provider = new GoogleAuthProvider();
            <button type="button" onClick={googleHandler} style={{width:"100%",margin:"auto"}}className="btn btn-primary"  id="btn">Sing up using Google</button>
     
           </form>    
-         
+         <ToastContainer></ToastContainer>
         
         </div>
 }

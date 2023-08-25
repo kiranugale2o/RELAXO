@@ -11,6 +11,9 @@ import { initializeApp } from "firebase/app";
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Profiledata from "../Relaxobackend/Profiledata";
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const firebaseConfig = {
@@ -36,15 +39,19 @@ const [userpage,setPage]=useState(false);
     
     event.preventDefault();
     const username=event.target.username.value;
+    const password=event.target.password.value;
+ 
     const dbRef = ref(getDatabase());
 get(child(dbRef, `users/${username}`)).then((snapshot) => {
   if (snapshot.exists()) {
     const data=snapshot.val();
+
     console.log(snapshot.val());
-    setPage(true);
+   
 setName(data.name);
 setEmail(data.email);
 const date=new Date();
+if(data.password===password){
 Profiledata.unshift({
   name:data.name,
   username:data.username,
@@ -58,12 +65,19 @@ Profiledata.unshift({
   post:1,
   
 });
- console.log(Profiledata);
-  }else{
-    alert("SORRY YOU ARE NOT USER OF RELAXO . SO PLEASE  CREATE YOUR ACCAOUNT IN RELAXO ")
-  }
+setPage(true);
+}else{
+ toast.error("You can Enter Invalid Data");
+
+}
+}
+
+else{
+  toast.error("You can Enter Invalid Data");
+
+}
 }) .catch((error) => {
-  alert(error);
+  alert(error.message);
   console.error(error);
 });
   }
@@ -105,8 +119,7 @@ signInWithEmailAndPassword(auth, username, password)
 <br></br>
         
            <button type="submit" style={{width:"100%",margin:"auto"}} id="btn" className="btn btn-primary">Login</button>
-          
-        <br></br>
+              <br></br>
        <br></br>
           <Link to="/singup" style={{fontSize:"18px",width:"30%",margin:"auto 40px",backgroundColor:"white"}}  className="text-center"  >Create New Account{">"}</Link>
          <hr></hr>
@@ -116,8 +129,10 @@ signInWithEmailAndPassword(auth, username, password)
           <button type="button" style={{width:"100%",margin:"auto"}} id="btn" className="btn btn-primary">Login as Google</button>
        
           </form>
-          
+          <ToastContainer></ToastContainer>
         </div>
+        
+    
 }
 
 </>

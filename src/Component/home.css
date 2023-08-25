@@ -17,6 +17,12 @@
    
 
 }
+
+.postofe{
+    width: 90%;
+    margin: 20px -10%;
+   
+}
 .search-page{
     display: none;
 }
@@ -28,6 +34,11 @@
      }
      .search-page{
         display: block;
+    }
+    .postofe{
+        width: 90%;
+        margin: 20px -0%;
+       
     }
     
     .leftbar{

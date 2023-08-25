@@ -17,9 +17,11 @@ import Profile from "./Profile";
 import Profiledata from "../Relaxobackend/Profiledata";
 import Saved from "./Saved";
 import Savepost from "../Relaxobackend/Savepost";
+import Login from "../authorizationpart/Login";
+import Register from "../authorizationpart/Register";
 export default function Home(){
- const d=Profiledata[0];
- console.log(d);
+ 
+ 
     return(
        <>
        <Router>
@@ -32,20 +34,18 @@ export default function Home(){
           <Switch>
 
 
-          <Route path="/post">
-         <> <div className="h3 p-3">Letest Posts</div>
-         {PostData.map((d)=>{
-          return <Postpage key={d.id} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
-          })}
-            </>
-        </Route>
           <Route path="/search">
             <RightNavbar></RightNavbar>
           </Route>
-          <Route path="/reels">
-          
-          </Route>
+          <Route path="/explore">
+          <div className="p-3 h3">Posts</div>
          
+            <div className="postofe">
+          {PostData.map((d)=>{
+          return <Postpage  key={d.id} vishow={d.vishow} name={d.name} username={d.username} userImage={d.userImage} post={d.post} postImg={d.imageUrl} like={d.like} comment={d.comment} height={d.height}></Postpage>
+          })}</div>
+          </Route>
+        
           <Route path="/saved">
           <div className="p-3 h3">Saved Posts</div>
            <div style={{position:"absolute",right:"35%",width:"40%"}}> 
@@ -54,6 +54,9 @@ export default function Home(){
            </div>
           
           </Route>
+          <Route path="/login">
+          
+         </Route>
           <Route path="/profile">
             <div style={{width:"auto"}}>
              <UserProfile></UserProfile>
@@ -61,16 +64,18 @@ export default function Home(){
      
           </Route>
           <Route path="/">
-            <div className="p-3 h3">Letest Post</div>
+<div className="p-3 h3">Letest Post</div>
             <CreatePost></CreatePost>
-          </Route>
+</Route>
 
           </Switch>
           </div>
+          
           <div className="rightbar">
             <RightNavbar></RightNavbar>
           </div>
           </div>
+         
        </Router>
        </>
        );

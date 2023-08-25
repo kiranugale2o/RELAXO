@@ -26,6 +26,7 @@ function App(props) {
     <>
   
     <Switch>
+     
       <Route path="/login">
         <Login></Login>
       </Route>
@@ -36,8 +37,9 @@ function App(props) {
         <Register></Register>
       </Route>
    
+     
       <Route path="/">
-<Home></Home>
+       <Home></Home>
       </Route>
     </Switch>
     </>
