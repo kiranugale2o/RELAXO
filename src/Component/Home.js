@@ -56,19 +56,8 @@ export default function Home(){
           </Route>
           <Route path="/profile">
             <div style={{width:"auto"}}>
-             
-    
-        
-    <UserProfile key={d.id}  name={d.name} userback={d.userback} userlink={d.userlink} following={d.following} followers={d.followers} userjoin={d.userjoin}  username={d.username} profileImg={d.profileImg} userbio={d.userbio} ></UserProfile>
- 
-   
-    
-
-
-      
-   
-   
-     </div>
+             <UserProfile></UserProfile>
+           </div>
      
           </Route>
           <Route path="/">

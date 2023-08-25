@@ -68,7 +68,29 @@ margin: 0px;
     display: flex;
 }
 
+.edit-part{
+    
+    position: fixed;
+    width: 30%;
+    top: 3%;
 
+    left: 30%;
+    right: auto;
+    height: auto;
+}
+
+#dpicon{
+    position: relative;
+    margin: 10px 27%;
+   
+    top:1%;
+    right:  auto;
+    left: auto;
+  width: 20%;
+  height: 30px;
+  border: 50% none;
+    background-color: red;
+}
 @media screen and (max-width:600px) {
     
 
@@ -103,5 +125,16 @@ margin: 0px;
         position: relative;
         width: 30%;
         left: 60%;
+    }
+    .edit-part{
+        width: 90%;
+        left: 0%;
+        top: 15%;
+        right: 0%;
+    }
+    #dpicon{
+        margin: 0px 45%;
+
+        width: auto;
     }
 }
