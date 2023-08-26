@@ -76,8 +76,36 @@ const PostData=[
        like:1082,
        comment:346,
        vishow:"none"
-    }
+    },
  
+    {
+      id:6,
+       name:"relaxo the social network",
+       userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Frelaxo.jpg?alt=media&token=c15df9f9-f95d-40ef-bc28-15f61757e0e1",
+     username:"@Relaxo_the_social",
+       post:" Greate Thinking Are Coming >>",
+       imageUrl:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Flogo.png?alt=media&token=d7e0fe04-f6e8-4074-9155-a1bd6357",
+        height:"300",
+       like:875,
+       comment:56,
+       following:1,
+       vishow:"none"
+    },
+    {
+      id:7,
+           name:" Riched Duck",
+           userImage:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmark.jpeg?alt=media&token=ebc4c5d2-d6a5-4b35-ac2f-84e030999ec0",
+           username:"@Rich__duck2o",
+           userBackground:"https://firebasestorage.googleapis.com/v0/b/relaxo-social.appspot.com/o/backend-images%2Fmarksetup.jpeg?alt=media&token=d07a80ea-2155-49ec-a027-8bd2de0b70e9",
+   
+           userBio:"<> I Am Tester </>",
+           userLink:"https://en.wikipedia.org/wiki/Mark_Zuckerberg",
+           userJoin:"Joined march 10 2023",
+           post:3,
+           
+           following:1,
+           followers:1,
+    }
  ];
 
 export default PostData;

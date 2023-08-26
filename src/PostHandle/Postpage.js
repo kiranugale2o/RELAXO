@@ -1,6 +1,24 @@
 import React,{useState} from "react";
 import './postpage.css';
 import Profile from "../Component/Profile";
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  InstapaperIcon,
+  InstapaperShareButton,
+  FacebookIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  TwitterShareButton,
+TwitterIcon,
+LinkedinShareButton,
+LinkedinIcon,
+EmailShareButton,
+EmailIcon,
+TumblrShareButton,
+TumblrIcon,
+} from 'react-share';
 import CreatePost from "../Component/CreatePost";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -13,8 +31,8 @@ const[followBtn,setfollowBtn]=useState("Follow");
 const [colorN,setcolor]=useState("black");
 const [like,setLike]=useState(props.like);
 const[delshow,setdelshow]=useState("none");
-
-
+const[sharedis,setSharedis]=useState("none")
+const shareUrl='https://relaxo-social.web.app/';
 const deleteHandler=()=>{
   
   if((Profiledata[0].username)===(props.username) ){
@@ -62,6 +80,10 @@ const alertBtn=()=> {
       });
       toast.success("saved");
       console.log(Savepost);
+ }
+
+ const shareHandler=()=>{
+  setSharedis("block");
  }
     return(
 
@@ -123,11 +145,81 @@ const alertBtn=()=> {
 </svg>
 <p style={{margin:"-5px -17px"}} ></p>
 </div>
-<div className="each-icon" style={{display :"flex"}}>
+<div className="each-icon" style={{display :"flex"}} onClick={shareHandler}>
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
   <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
 </svg></div>
 <p style={{margin:"-5px -17px"}} ></p>
+<div className='border shadow'
+        style={{
+          position:"fixed",
+          top:"15%",
+          
+          width:"20%",
+          display:`${sharedis}`,
+        margin:"auto",
+        height:"40vh",
+       
+        
+        }}
+      >
+          <div className='text-center h2 '>Share Post</div>
+      
+        <div style={{
+          
+          
+           width:"100%",
+           display:"flex",
+           margin:" 20px auto",
+        }}>
+          <FacebookShareButton
+          url={shareUrl}
+          quote={'Relaxo the social network'}
+          hashtag={'#relaxo'}
+        >
+          <FacebookIcon size={40} round={true} />
+        </FacebookShareButton>
+
+        <WhatsappShareButton
+          url={shareUrl}
+          quote={'Relaxo the social network'}
+        >
+          <WhatsappIcon size={40} round={true} />
+        </WhatsappShareButton>
+        <InstapaperShareButton 
+        url={shareUrl}>
+         <InstapaperIcon size={40 } round={true}></InstapaperIcon>
+        </InstapaperShareButton>
+<TelegramShareButton 
+url={shareUrl}>
+  <TelegramIcon size={40} round={true}></TelegramIcon>
+</TelegramShareButton>
+</div>
+<div style={{
+  width:"100%",
+  display:"flex",
+}}>
+  <TelegramShareButton 
+  url={shareUrl}
+  >
+    <TwitterIcon size={40} round={true}></TwitterIcon>
+  </TelegramShareButton>
+
+  <LinkedinShareButton 
+  url={shareUrl}>
+    <LinkedinIcon size={40} round={true}></LinkedinIcon>
+  </LinkedinShareButton>
+
+  <EmailShareButton 
+  url={shareUrl}>
+    <EmailIcon size={40} round={true}></EmailIcon>
+  </EmailShareButton>
+  <TumblrShareButton 
+  url={shareUrl}>
+    <TumblrIcon size={40} round={true}></TumblrIcon>
+  </TumblrShareButton>
+</div>
+      </div>
      </div>
     </div>
 </div>
