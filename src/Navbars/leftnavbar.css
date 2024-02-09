@@ -1,5 +1,7 @@
 #bar{
    position: fixed;
+    z-index: 1;
+  overflow: hidden;
    left: 0px;
    bottom: 0px;
    width: 20%;
